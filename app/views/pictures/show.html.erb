@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @picture.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @picture.location %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @picture.notes %>
+</p>
+
+<%= image_tag  @picture.image_url.sub!("#{Rails.root.to_s}/public", '') %>
+
+<%= link_to 'Edit', edit_picture_path(@picture) %> |
+<%= link_to 'Back', pictures_path %>
