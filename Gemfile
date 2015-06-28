@@ -45,16 +45,18 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rmagick'
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+# to read file info from jpg and tiff files
+gem 'exifr'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0.0.beta4'
+#to read file types
+# gem 'ruby-filemagic'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'better_errors'
-  gem 'spring'
+group :development do
+  gem 'brakeman', require: false
+end
+
+group :development, :test, :litmus do
+  gem 'zeus'
   gem 'rspec-rails', '~> 3.1'
   gem 'factory_girl_rails', '~> 4.2.1'
   gem 'faker', '~> 1.2.0'
@@ -65,4 +67,35 @@ group :development, :test do
   gem 'pry-remote'
   gem 'pry-nav'
 end
+
+group :development, :litmus do
+  gem 'listen', '~> 2.7'
+  gem 'guard-rspec'
+  gem 'guard-bundler'
+  gem 'terminal-notifier-guard'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener'
+  gem 'mail_view', :git => 'https://github.com/37signals/mail_view.git'
+  gem 'foreman'
+  gem 'quiet_assets'
+  gem 'bullet'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'capybara_select2'
+  gem 'database_cleaner', '~> 1.2.0'
+  gem 'launchy', '~> 2.3.0'
+  gem 'shoulda-matchers', require: false
+  gem 'email_spec', github: 'bmabey/email-spec'
+  gem 'timecop'
+  gem 'selenium-webdriver'
+  gem 'capybara-firebug'
+  gem 'webmock'
+  gem 'vcr'
+  gem 'rspec-sidekiq'
+end
+
 

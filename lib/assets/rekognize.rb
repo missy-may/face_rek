@@ -1,0 +1,3 @@
+class Rekognize
+
+end
